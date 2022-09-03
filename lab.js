@@ -182,19 +182,28 @@ user.email = 'bryan.smith@devmounta.in';
   Using the user object above, delete the users age off of the object.
 */
 
-//Code Here
+delete user.age
 
 
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
-  Create a class called 'Cat'. Make sure to call your constructor, and require these 3 parameters: name, age, color.
-  Outside of your class, create an instance of your cat, passing in whatever values you would like.
+  Create a class called 'Cat'. Make sure to call your constructor, 
+  and require these 3 parameters: name, age, color.
+  Outside of your class, create an instance of your cat, 
+  passing in whatever values you would like.
   Print the name of your cat instance using dot notation.
 */
 
 //Code here
-
-
+class Cat {
+  constructor(name, age, color){
+    this.name = name;
+    this.age = age;
+    this.color = color;
+  }
+}
+const cat1 = new Cat('slate', 4, 'grey');
+console.log(cat1.name);
 
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
@@ -204,7 +213,19 @@ user.email = 'bryan.smith@devmounta.in';
   Call the castSpell function on the instance of your wizard.
 */
 
-//Code here
+class Wizard {
+  constructor(name, age, favoriteSpell){
+    this.name = name;
+    this.age = age;
+    this.favoriteSpell = favoriteSpell;
+  }
+
+  castSpell(name, favoriteSpell) {
+    console.log(`${this.name} has cast ${this.favoriteSpell}`)
+  }
+}
+const wizard1 = new Wizard('george', 76, 'abra cadabra');
+wizard1.castSpell();
 
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
@@ -220,7 +241,8 @@ user.email = 'bryan.smith@devmounta.in';
     and it won't be sold yet. 
 
     Create a method called 'sell'.
-    sell should be a function that changes the value of sold to true and prints the string: '{brand} {model} has been sold.'
+    sell should be a function that changes the value of sold to true
+     and prints the string: '{brand} {model} has been sold.'
     
     Create another method called 'changePrice'. We can use this 
     to change the price in case a phone isn't selling.
@@ -230,7 +252,27 @@ user.email = 'bryan.smith@devmounta.in';
 */
 
 //Code Here
+class Phone {
+  constructor(brand, model, storage, color, price, sold){
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.price = price;
+    this.sold = false;
+  }
 
+  sell(){
+    
+      this.sold = true;
+      console.log(`${this.brand} ${this.model} has been sold.`)
+    
+  }
+
+  changePrice(newPrice){
+    this.price = newPrice;
+  }
+}
   
 /*
     Next make three new phone instances using your class.
@@ -243,7 +285,9 @@ user.email = 'bryan.smith@devmounta.in';
 */
 
 //Code Here
-
+let phone1 = new Phone('iphone', '13', 265, 'white', 1300)
+let phone2 = new Phone('iphone', '6', 64, 'gold', 400)
+let phone3 = new Phone('samsung', 'galexy', 265, 'black', 1000 )
 /* 
   Call the changePrice function on one of your phones, 
   don't forget to pass in a new price 
@@ -251,7 +295,9 @@ user.email = 'bryan.smith@devmounta.in';
   Then console.log that object to see the price change
 */ 
 
-//Code Here 
+//Code Here
+phone1.changePrice(1000)
+  console.log(phone1)
 
 
 /*
@@ -261,7 +307,8 @@ user.email = 'bryan.smith@devmounta.in';
 */
 
 //Code Here 
-
+phone2.sell();
+console.log(phone2);
 
 //////////////////////////// PROBLEM 15 ////////////////////////////
 
@@ -280,6 +327,7 @@ const colors = {
 //do not edit this object
 
 //Code Here 
+// const colorsCopy = [...colors]
 
 
 
@@ -308,6 +356,7 @@ const shippingInfo = {
 //do not edit the objects above
 
 //Code Here
+// const helensInfo = [...contactInfo, ...shippingInfo]
 
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
@@ -326,14 +375,25 @@ const shippingInfo = {
 */
 
 //Code Here 
+class Vehicle {
+  constructor(capacity, color, mileage){
+    this.capacity = capacity;
+    this.color = color;
+    this.mileage = mileage;
+  }
 
+  move(miles){
+    this.mileage += miles
+    console.log(this.mileage)
+  }
+}
 
 /*
   Create a vehicle using your new class and save it to a variable called myFirstVehicle
 */
 
 //Code Here
-
+const myFirstVehicle = new Vehicle(5, 'black', 180000);
 
 /* 
   Now we'll create a class that's based off of the vehicle class. 
@@ -344,17 +404,23 @@ const shippingInfo = {
 */
 
 //Code Here
-
+class Motorcycle extends Vehicle {
+  constructor(capacity, color, mileage, make, isCool){
+    super(capacity, color, mileage);
+    this.make = make;
+    this.isCool = isCool;
+  }
+}
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
 //Code Here 
-
+const myFirstMotorcycle = new Motorcycle(1, 'red', 2000, 'harley', true)
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
 */
-
+myFirstMotorcycle.move(70);
 /*
   Let's make another class based off of Vehicle. 
 
@@ -372,7 +438,26 @@ const shippingInfo = {
 */
 
 //Code Here
+class Boat extends Vehicle {
+  constructor(capacity, color, mileage, name, type, isSeaworthy){
+    super(capacity, color, mileage);
+    this.name = name;
+    this.type = type; 
+    this.isSeaworthy = isSeaworthy;
+  }
 
+  checkSeaworthiness(){
+    if(this.isSeaworthy === true){
+      console.log(`The ${this.color} ${this.type} ${this.name} is seaworthy!`)
+    } else {
+      console.log(`You need to get your ${this.type} in shape!`)
+    }
+  }
+
+  performMaintenance(){
+    this.isSeaworthy === true;
+  }
+}
 
 /*
   Create a new boat using your class. You can choose whatever values you like for all the 
@@ -380,21 +465,22 @@ const shippingInfo = {
 */
 
 //Code Here
-
+const myFirstBoat = new Boat(20, 'white', 30000, 'sailor', 'yacht', false )
 /*
   Call the checkSeaworthiness method on your new boat
 */
 
 //Code Here
-
+myFirstBoat.checkSeaworthiness();
 /*
   Now run the performMaintenance method on your boat
 */
 
 //Code Here 
-
+myFirstBoat.performMaintenance();
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
 //Code Here
+myFirstBoat.checkSeaworthiness();
