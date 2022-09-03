@@ -1,10 +1,14 @@
 //////////////////////////// PROBLEM 1 ////////////////////////////
 /*
   Create an object called me.
-  Give it a key of name with the value being your name, and another key of age with the value being your age.
+  Give it a key of name with the value being your name, 
+  and another key of age with the value being your age.
 */
 
-//Code here
+const Me = {
+  name: 'Ashley',
+  age: '20'
+}
 
 
 
@@ -15,46 +19,65 @@
 //name (a string), color (a string), age (a number),
 //and goodBoy/goodGirl (a boolean).
 
-//Code here
+const dog = {
+  name: 'Dakota',
+  color:'yellow',
+  age: 3,
+  goodGirl: true
+}
 
 
 
 //////////////////////////// PROBLEM 3 ////////////////////////////
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
-//Code here
+console.log(dog.name);
 
 
 
 //////////////////////////// PROBLEM 4 ////////////////////////////
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
-//Code here
+console.log(dog['color']);
 
 
 
 //////////////////////////// PROBLEM 5 ////////////////////////////
 /*
-  Make a 'favoriteThings' object that contains the following keys: band, food, person, book, movie, holiday.
+  Make a 'favoriteThings' object that contains the following keys: 
+  band, food, person, book, movie, holiday.
   Have the values to those keys be strings that are equal to your favorite thing in that category.
 */
 
-//Code here
+const favoriteThings = {
+  band: 'LANY',
+  food: 'hamburgers',
+  person: 'ollie',
+  book: 'waterfall',
+  movie: 'notting hill',
+  holiday: 'christmas'
+}
 
 
 /*
-  After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
+  After you've made your object, use bracket or dot notation to add another key named
+   'car' with the value being your favorite car and then another key named 'show' 
+   with the value being your favorite show.
 */
 
-//Code here
+favoriteThings.car = 'tesla';
+favoriteThings.show = 'friends';
 
 
 /*
-  Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
-  and change the value of the book key in your favoriteThings object to be 'Harry Potter'. (If they were either of those things already, change them to something else.)
+  Now use bracket or dot notation to change the value of the food key
+   in your favoriteThings object to be 'Chicken Nuggets'
+  and change the value of the book key in your favoriteThings
+   object to be 'Harry Potter'. (If they were either of those things already, change them to something else.)
 */
 
-//Code here
+favoriteThings.food = 'chicken nuggets';
+favoriteThings.book = 'harry potter';
 
 
 //////////////////////////// PROBLEM 6 ////////////////////////////
@@ -69,10 +92,12 @@ var carDetails = {
 // Do not edit the code above.
 
 /*
-  Use object destructuring to save the property values from the object carDetails into new variables. 
+  Use object destructuring to save the property values 
+  from the object carDetails into new variables. 
 */
 
-//Code Here
+
+let {color, make, model, year} = carDetails;
 
 
 
@@ -85,13 +110,13 @@ var carDetails = {
 */
 
 function greeting( obj ) {
-  //Code Here
+ const {firstName, lastName, title} = obj;
+ 
   
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
-
 
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
@@ -104,7 +129,12 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
-//Code Here
+
+function totalPopulation (object){
+  const {utah, california, texas, arizona} = object;
+  return utah + california + texas + arizona
+ 
+}
 
 
 
@@ -118,7 +148,10 @@ function greeting( obj ) {
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
+function ingredients(object){
+  const {carb, fat, protein} = object;
+  return [carb, fat, protein]
+}
 
 
 
@@ -140,7 +173,8 @@ var user = {
   Make that change without modifying the original object code above.
 */
 
-//Code Here
+user.name = 'Bryan G. Smith';
+user.email = 'bryan.smith@devmounta.in';
 
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
